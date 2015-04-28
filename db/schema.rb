@@ -7,10 +7,10 @@ Sequel.migration do
       column :created_at, "date"
       column :hash, "varchar(255)"
     end
-
+    
     create_table(:schema_migrations) do
       column :filename, "varchar(255)", :null=>false
-
+      
       primary_key [:filename]
     end
   end
