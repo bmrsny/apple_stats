@@ -5,3 +5,19 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+#
+20.times do
+  Payload.insert(
+                  url: "http://apple.com",
+                  referrer: "http://apple.com/about",
+                  created_at: Date.today,
+                )
+end
+
+20.times do
+  Payload.insert(
+                  url: "https://apple.com",
+                  referrer: "http://developer.apple.com",
+                  created_at: (Date.today -5)
+                )
+end
