@@ -1,0 +1,12 @@
+test:
+   adapter: mysql2
+   database: apple_challenge_test
+   username: test
+   password: testpwd
+
+development:
+  adapter: mysql2
+  host: localhost
+  database: apple_challenge_development
+  username: root
+  password:

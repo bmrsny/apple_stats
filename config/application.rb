@@ -28,5 +28,23 @@ module AppleChallenge
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    #
+    # Allowed options: :sql, :ruby.
+    #config.sequel.schema_format = :sql
+
+    ## Whether to dump the schema after successful migrations.
+    ## Defaults to false in production and test, true otherwise.
+    #config.sequel.schema_dump = true
+
+    ## These override corresponding settings from the database config.
+    #config.sequel.max_connections = 16
+    #config.sequel.search_path = %w(mine public)
+
+    ## Configure whether database's rake tasks will be loaded or not
+    ## Defaults to true
+    #config.sequel.load_database_tasks = false
+
+    ## This setting disabled the automatic connect after Rails init
+    #config.sequel.skip_connect = true#
   end
 end
