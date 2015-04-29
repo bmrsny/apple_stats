@@ -29,6 +29,7 @@ class PayloadTest < ActiveSupport::TestCase
   end
 
   test "returns top ten urls grouped by date with top 5 referrers" do
+    skip
   end
 
   private
