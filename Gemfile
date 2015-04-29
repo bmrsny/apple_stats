@@ -23,3 +23,7 @@ group :development, :test do
   gem 'spring'
 end
 
+group :test do
+  gem 'minitest-around'
+  gem 'database_cleaner'
+end
