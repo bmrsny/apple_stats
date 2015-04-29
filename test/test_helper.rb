@@ -7,14 +7,9 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
 end
 
-DatabaseCleaner.strategy = :transaction
-
-class MiniTest::Spec
-  before :each do
-    DatabaseCleaner.start
-  end
-
-  after :each do
-    DatabaseCleaner.clean
+class Minitest::Spec
+  around do |tests|
+    DatabaseCleaner.cleaning(&tests)
   end
 end
+DatabaseCleaner[:sequel].strategy = :transaction

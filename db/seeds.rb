@@ -23,9 +23,9 @@ end
                 )
 end
 
-20.times do
+30.times do
   Payload.insert(
-                  url: "http://apple.com",
+                  url: "https://apple.com",
                   referrer: "http://apple.com/about",
                   created_at: (Date.today - 1),
                 )
