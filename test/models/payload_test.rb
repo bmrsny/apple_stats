@@ -2,10 +2,10 @@ require 'test_helper'
 
 class PayloadTest < ActiveSupport::TestCase
   def setup
-    Payload.insert(url: "http://apple.com", referrer: "http://apple.com/about",created_at: Date.today)
-    Payload.insert(url: "http://apple.com", referrer: "http://apple.com/contact",created_at: (Date.today - 1))
-    Payload.insert(url: "https://en.wikepedia.com", referrer: "http://google.com",created_at: Date.today)
-    Payload.insert(url: "https://apple.com/about", referrer: "http://apple.com",created_at: (Date.today - 10))
+    Payload.insert(url: "http://apple.com", referrer: "http://apple.com/about",created_at: "2015-04-28")
+    Payload.insert(url: "http://apple.com", referrer: "http://apple.com/contact",created_at: "2015-04-27")
+    Payload.insert(url: "https://en.wikipedia.org", referrer: "http://google.com",created_at: "2015-04-28")
+    Payload.insert(url: "https://apple.com/about", referrer: "http://apple.com",created_at: "2015-04-20")
   end
 
   def teardown
@@ -17,9 +17,8 @@ class PayloadTest < ActiveSupport::TestCase
   end
 
   test "groups url count bewtween date range" do
-    payload = Payload.top_urls
-    assert_equal 2, payload.first[:visits]
-    assert_equal 1, payload.last[:visits]
+    result = [{'2015-04-28' => [{:url =>"http://apple.com", :visits =>1}, {:url =>"https://en.wikipedia.org", :visits=>1}]}, {"2015-04-28" => []}, {'2015-04-27' => [{:url=>"http://apple.com", :visits=>1}]}]
+    assert_equal result, Payload.top_urls
     clear_records
   end
 
