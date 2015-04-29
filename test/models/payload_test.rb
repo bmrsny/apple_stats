@@ -22,6 +22,12 @@ class PayloadTest < ActiveSupport::TestCase
     clear_records
   end
 
+  test "groups url by views when given a date" do 
+    result = [{:url=>"http://apple.com", :visits=>1}, {:url=>"https://en.wikipedia.org", :visits=>1}]
+    assert_equal result, Payload.pull_url_data("2015-04-28")
+    clear_records
+  end
+
   test "returns top ten urls grouped by date with top 5 referrers" do
   end
 
