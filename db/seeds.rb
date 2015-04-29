@@ -51,6 +51,7 @@ end
                   created_at: (Date.today - 4)
                 )
 end
+
 20.times do
   Payload.insert(
                   url: urls.sample,
