@@ -4,7 +4,7 @@ class PayloadTest < ActiveSupport::TestCase
   def setup
     Payload.insert(url: "http://apple.com", referrer: "http://apple.com/about",created_at: Date.today)
     Payload.insert(url: "http://apple.com", referrer: "http://apple.com/contact",created_at: Date.today)
-    Payload.insert(url: "https://apple.com", referrer: "http://google.com",created_at: Date.today)
+    Payload.insert(url: "https://en.wikepedia.com", referrer: "http://google.com",created_at: Date.today)
     Payload.insert(url: "https://apple.com/about", referrer: "http://apple.com",created_at: (Date.today - 6))
   end
 
