@@ -6,7 +6,7 @@ class Payload < Sequel::Model
     #self.group_and_count(:url, :created_at).where('created_at > ?', (Date.today - 6)).group(:created_at).all
   end
 
-  def self.top_ten_urls
+  def self.top_referrers
     self.db["SELECT *, COUNT(url) AS visits FROM payloads WHERE created_at BETWEEN '2015-04-22' AND '2015-04-28' LIMIT 10"]
   end
 

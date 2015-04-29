@@ -3,9 +3,9 @@ require 'test_helper'
 class PayloadTest < ActiveSupport::TestCase
   def setup
     Payload.insert(url: "http://apple.com", referrer: "http://apple.com/about",created_at: Date.today)
-    Payload.insert(url: "http://apple.com", referrer: "http://apple.com/contact",created_at: Date.today)
+    Payload.insert(url: "http://apple.com", referrer: "http://apple.com/contact",created_at: (Date.today - 1))
     Payload.insert(url: "https://en.wikepedia.com", referrer: "http://google.com",created_at: Date.today)
-    Payload.insert(url: "https://apple.com/about", referrer: "http://apple.com",created_at: (Date.today - 6))
+    Payload.insert(url: "https://apple.com/about", referrer: "http://apple.com",created_at: (Date.today - 10))
   end
 
   def teardown
@@ -21,6 +21,10 @@ class PayloadTest < ActiveSupport::TestCase
     assert_equal 2, payload.first[:visits]
     assert_equal 1, payload.last[:visits]
     clear_records
+  end
+
+  test "returns top ten urls grouped by date with top 5 referrers" do
+    payload.top_referrers
   end
 
   private
