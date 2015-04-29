@@ -1,14 +1,14 @@
 class Payload < Sequel::Model
 
   def self.top_urls
-    range = (Date.today..5.days.ago.to_date).to_a
+    #range = (Date.today..(5.days.ago.to_date)).to_a
+    range = (5.days.ago.to_date..Date.today)
+      .map {|date| date.strftime("%Y-%m-%d") }
+       .reverse
     result = []
     range.each do |date|
-      require "pry" 
-       binding.pry
-      formatted_date = date.strftime("%Y-%m-%d")
-      output = pull_url_data(formatted_date)
-      result << {formatted_date => output}
+      output = pull_url_data(date)
+      result << {date => output}
     end
     result
   end

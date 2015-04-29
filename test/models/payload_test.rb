@@ -17,7 +17,7 @@ class PayloadTest < ActiveSupport::TestCase
   end
 
   test "groups url count bewtween date range" do
-    result = [{'2015-04-28' => [{:url =>"http://apple.com", :visits =>1}, {:url =>"https://en.wikipedia.org", :visits=>1}]}, {"2015-04-28" => []}, {'2015-04-27' => [{:url=>"http://apple.com", :visits=>1}]}]
+    result = [{'2015-04-28' => [{:url =>"http://apple.com", :visits =>1}, {:url =>"https://en.wikipedia.org", :visits=>1}]}, {'2015-04-27' => [{:url=>"http://apple.com", :visits=>1}]}]
     assert_equal result, Payload.top_urls
     clear_records
   end
