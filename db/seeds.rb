@@ -1,56 +1,70 @@
-20.times do
+urls      = ["http://apple.com",
+             "https://apple.com",
+             "https://www.apple.com",
+             "http://developer.apple.com",
+             "http://en.wikipedia.org",
+             "http://opensource.org"]
+
+referrers = ["http://apple.com",
+             "https://apple.com",
+             "https://www.apple.com",
+             "http://developer.apple.com",
+             ""]
+
+100.times do
   Payload.insert(
-                  url: "http://apple.com",
-                  referrer: "http://apple.com/about",
+                  url: urls.sample,
+                  referrer: referrers.sample,
                   created_at: Date.today,
                 )
 end
 
-10.times do
+100.times do
   Payload.insert(
-                  url: "http://ign.com",
-                  referrer: "http://ign.com/about",
-                  created_at: Date.today,
+                  url: urls.sample,
+                  referrer: referrers.sample,
+                  created_at: (Date.today - 2),
                 )
 end
 
 
-20.times do
+100.times do
   Payload.insert(
-                  url: "http://apple.com",
-                  referrer: "http://apple.com/about",
+                  url: urls.sample,
+                  referrer: referrers.sample,
+                  created_at: (Date.today - 3),
+                )
+end
+
+100.times do
+  Payload.insert(
+                  url: urls.sample,
+                  referrer: referrers.sample,
                   created_at: (Date.today - 1),
                 )
 end
 
-30.times do
-  Payload.insert(
-                  url: "https://apple.com",
-                  referrer: "http://apple.com/about",
-                  created_at: (Date.today - 1),
-                )
-end
-
 20.times do
   Payload.insert(
-                  url: "https://apple.com",
-                  referrer: "http://developer.apple.com",
+                  url: urls.sample,
+                  referrer: referrers.sample,
+                  created_at: (Date.today - 4)
+                )
+end
+20.times do
+  Payload.insert(
+                  url: urls.sample,
+                  referrer: referrers.sample,
                   created_at: (Date.today - 5)
                 )
 end
 
 20.times do
   Payload.insert(
-                  url: "http://www.apple.com",
-                  referrer: "",
+                  url: urls.sample,
+                  referrer: referrers.sample,
                   created_at: (Date.today - 10)
                 )
 end
 
-20.times do
-  Payload.insert(
-                  url: "http://en.wikipedia.org",
-                  referrer: "",
-                  created_at: (Date.today - 10)
-                )
-end
+
